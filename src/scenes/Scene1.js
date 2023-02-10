@@ -1,5 +1,5 @@
-import { Scene, Color, DirectionalLight, HemisphereLight } from 'three';
-import { Cube } from '../objects/Cube';
+import { Scene, Color, DirectionalLight, HemisphereLight, AxesHelper} from 'three';
+import car from '../objects/Car/car';
 
 class Scene1 extends Scene {
 	constructor() {
@@ -9,16 +9,20 @@ class Scene1 extends Scene {
 	}
 
 	create() {
-		this.brick = new Cube(2, new Color('rgb(255,0,0)'));
-		this.add(this.brick);
+		
+		this.Car = new car();
+		this.add(this.Car)
 
-		const ambientLight = new HemisphereLight(0xffffbb, 0x080820, .5);
+		const ambientLight = new HemisphereLight(0xffffbb, 0x080820, 5);
 		const light = new DirectionalLight(0xffffff, 1.0);
-		this.add(light, ambientLight);
+
+		const helper = new AxesHelper(3);
+
+		this.add(light, ambientLight, helper);
 	}
 
 	update() {
-
+		this.Car.update();
 	}
 }
 
