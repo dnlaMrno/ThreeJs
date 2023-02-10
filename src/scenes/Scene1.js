@@ -1,4 +1,4 @@
-import { Scene, Color, DirectionalLight, HemisphereLight, AxesHelper} from 'three';
+import { Scene, Color, DirectionalLight, HemisphereLight} from 'three';
 import car from '../objects/Car/car';
 
 class Scene1 extends Scene {
@@ -16,9 +16,9 @@ class Scene1 extends Scene {
 		const ambientLight = new HemisphereLight(0xffffbb, 0x080820, 5);
 		const light = new DirectionalLight(0xffffff, 1.0);
 
-		const helper = new AxesHelper(3);
+		
 
-		this.add(light, ambientLight, helper);
+		this.add(light, ambientLight);
 	}
 
 	update() {
